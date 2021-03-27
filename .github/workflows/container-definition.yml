@@ -34,7 +34,8 @@ jobs:
   short: 
   
     runs-on: ubuntu-latest
-    container: ubuntu
+    container: 
+      image:  ${{ env.container }}
     needs: build
     
     steps:
