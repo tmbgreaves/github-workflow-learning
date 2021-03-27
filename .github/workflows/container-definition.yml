@@ -33,11 +33,8 @@ jobs:
           
   short: 
   
-    env:
-      containername: ${{ env.container }}
-
     runs-on: ubuntu-latest
-    container: $containername
+    container: $container
     needs: build
     
     steps:
