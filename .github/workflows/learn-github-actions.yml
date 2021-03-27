@@ -26,13 +26,22 @@ jobs:
           push: true
           tags: tmbgreaves/github-workflow-learning:latest
           
-  test: 
+  short: 
 
     runs-on: ubuntu-latest
     container: tmbgreaves/github-workflow-learning:latest
     needs: build
     
     steps:
-   
      - name: Test 1
+       run: uname -a   
+
+  medium: 
+
+    runs-on: ubuntu-latest
+    container: tmbgreaves/github-workflow-learning:latest
+    needs: build
+    
+    steps:
+     - name: Test 2
        run: uname -a   
