@@ -16,7 +16,7 @@ jobs:
   build:
   
     env: 
-      - CXX: "g++"
+      CXX: "g++"
 
     runs-on: ubuntu-latest
 
@@ -49,7 +49,7 @@ jobs:
     steps:
      - name: Test 1
        env:
-         - FOO: bar
+         FOO: bar
        run: |
          uname -a
          df -k
