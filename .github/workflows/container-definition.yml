@@ -34,7 +34,7 @@ jobs:
   short: 
   
     runs-on: ubuntu-latest
-    container: $container
+    container: env.container
     needs: build
     
     steps:
