@@ -44,7 +44,6 @@ jobs:
   short: 
 
     runs-on: ubuntu-latest
-    container: ${container}
     needs: build
     
     steps:
@@ -52,14 +51,12 @@ jobs:
        env:
          FOO: bar
        run: |
-         uname -a
-         df -k
-         echo $FOO
+         docker pull ${{ env.container }}
+         docker run ${{ env.container }} true
 
   medium: 
 
     runs-on: ubuntu-latest
-    container: ${ontainer}
     needs: build
     
     steps:
@@ -71,7 +68,6 @@ jobs:
   long: 
 
     runs-on: ubuntu-latest
-    container: ${container}
     needs: build
     
     steps:
@@ -84,7 +80,6 @@ jobs:
   
     name: ${{ matrix.name }}
     runs-on: ${{ matrix.os }}
-    container: ${container}
     needs: build
     
     env:
