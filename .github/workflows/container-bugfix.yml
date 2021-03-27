@@ -1,4 +1,4 @@
-name: Container check
+name: Container bugfix
 
 on: 
   push:
