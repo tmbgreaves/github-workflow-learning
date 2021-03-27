@@ -67,7 +67,7 @@ jobs:
        run: pwd
 
 
-  medium: 
+  long: 
 
     runs-on: ubuntu-latest
     container: tmbgreaves/github-workflow-learning:latest
@@ -85,13 +85,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     
     env:
-      - FOO: BAR
+      FOO: BAR
       
     strategy:
       fail-fast: false
       matrix:
         name: [
-          entry1
+          entry1,
           entry2 
           ]
           
