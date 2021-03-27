@@ -83,6 +83,7 @@ jobs:
   
     name: ${{ matrix.name }}
     runs-on: ${{ matrix.os }}
+    container: ${{ matrix.container }}
     
     env:
       FOO: BAR
@@ -90,18 +91,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        os: [ ubuntu-latest ]
+        container: [ tmbgreaves/github-workflow-learning:latest ]
         name: [
-          entry1,
-          entry2 
+          "Checking /tmp",
+          "Checking /var"
           ]
           
         include:
-          - name: entry1
-            os: ubuntu-latest
+          - name: "Checking /tmp"
             rundir: "/tmp"
             
-          - name: entry2
-            os: ubuntu-latest
+          - name: "Checking /var"
             rundir: "/var"
             
     steps:
