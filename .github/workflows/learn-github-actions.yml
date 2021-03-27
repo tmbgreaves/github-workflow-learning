@@ -44,7 +44,7 @@ jobs:
   short: 
 
     runs-on: ubuntu-latest
-    container: ${{ env.container }}
+    container: ${container}
     needs: build
     
     steps:
@@ -59,7 +59,7 @@ jobs:
   medium: 
 
     runs-on: ubuntu-latest
-    container: ${{ env.container }}
+    container: ${ontainer}
     needs: build
     
     steps:
@@ -71,7 +71,7 @@ jobs:
   long: 
 
     runs-on: ubuntu-latest
-    container: ${{ env.container }}
+    container: ${container}
     needs: build
     
     steps:
@@ -84,7 +84,7 @@ jobs:
   
     name: ${{ matrix.name }}
     runs-on: ${{ matrix.os }}
-    container: ${{ env.container }}
+    container: ${container}
     needs: build
     
     env:
