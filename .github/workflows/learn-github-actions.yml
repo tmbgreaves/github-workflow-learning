@@ -92,7 +92,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest ]
-        container: [ tmbgreaves/github-workflow-learning:latest ]
+        container: [ "tmbgreaves/github-workflow-learning:latest" ]
         name: [
           "Checking /tmp",
           "Checking /var"
