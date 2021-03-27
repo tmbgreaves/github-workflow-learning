@@ -32,9 +32,12 @@ jobs:
           tags: ${{ env.container }}
           
   short: 
+  
+    env:
+      containername: ${{ env.container }}
 
     runs-on: ubuntu-latest
-    container: $container
+    container: $containername
     needs: build
     
     steps:
