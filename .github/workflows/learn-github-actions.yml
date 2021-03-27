@@ -53,7 +53,11 @@ jobs:
        run: |
          docker pull ${{ env.container }}
          touch ${{ github.sha }}
+         ls -la
          docker run -v $PWD:/host -w /host ${{ env.container }} ls -la
+         docker run -v $PWD:/host -w /host ${{ env.container }} touch insidedocker
+         ls -la
+
 
   medium: 
 
