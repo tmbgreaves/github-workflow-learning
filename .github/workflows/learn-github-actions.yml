@@ -98,7 +98,7 @@ jobs:
         include:
           - name: entry1
             os: ubuntu-latest
-            checkdir: "/tmp"
+            rundir: "/tmp"
             
           - name: entry2
             os: ubuntu-latest
