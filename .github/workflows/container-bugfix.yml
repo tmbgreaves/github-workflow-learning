@@ -35,7 +35,7 @@ jobs:
   
     name: Run
     runs-on: iubuntu-latest
-    container: ${container}
+    container: ${{ matrix.container }}
     needs: build
     
     strategy:
