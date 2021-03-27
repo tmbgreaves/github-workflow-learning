@@ -52,7 +52,8 @@ jobs:
          FOO: bar
        run: |
          docker pull ${{ env.container }}
-         docker run ${{ env.container }} true
+         touch ${{ github.sha }}
+         docker run -v $PWD:/host -w /host ${{ env.container }} ls -la
 
   medium: 
 
