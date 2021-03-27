@@ -84,6 +84,7 @@ jobs:
     name: ${{ matrix.name }}
     runs-on: ${{ matrix.os }}
     container: ${{ matrix.container }}
+    needs: build
     
     env:
       FOO: BAR
