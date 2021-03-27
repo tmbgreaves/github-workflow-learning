@@ -10,6 +10,7 @@ on:
 
 env:
   PETSC_DIR: /usr/lib/petscdir/3.13
+  container: "tmbgreaves/github-workflow-learning:${{ github.sha }}"
 
 jobs:
 
@@ -38,12 +39,12 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: tmbgreaves/github-workflow-learning:latest
+          tags: ${{ container }}
           
   short: 
 
     runs-on: ubuntu-latest
-    container: tmbgreaves/github-workflow-learning:latest
+    container: ${{ container }}
     needs: build
     
     steps:
@@ -58,7 +59,7 @@ jobs:
   medium: 
 
     runs-on: ubuntu-latest
-    container: tmbgreaves/github-workflow-learning:latest
+    container: ${{ container }}
     needs: build
     
     steps:
@@ -70,7 +71,7 @@ jobs:
   long: 
 
     runs-on: ubuntu-latest
-    container: tmbgreaves/github-workflow-learning:latest
+    container: ${{ container }}
     needs: build
     
     steps:
@@ -83,7 +84,7 @@ jobs:
   
     name: ${{ matrix.name }}
     runs-on: ${{ matrix.os }}
-    container: ${{ matrix.container }}
+    container: ${{ container }}
     needs: build
     
     env:
@@ -93,7 +94,6 @@ jobs:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest ]
-        container: [ "tmbgreaves/github-workflow-learning:latest" ]
         name: [
           "Checking /tmp",
           "Checking /var"
