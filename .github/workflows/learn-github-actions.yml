@@ -78,3 +78,34 @@ jobs:
        shell: bash -l {0}
        working-directory: /tmp
        run: pwd
+
+  set:
+  
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    
+    env:
+      - FOO: BAR
+      
+    strategy:
+      fail-fast: false
+      matrix:
+        name: [
+          entry1
+          entry2 
+          ]
+          
+        include:
+          - name: entry1
+            os: ubuntu-latest
+            checkdir: "/tmp"
+            
+          - name: entry2
+            os: ubuntu-latest
+            rundir: "/var"
+            
+    steps:
+    
+      - name: Check Directory
+      - run: |
+          ls ${{ matrix.rundir }}
