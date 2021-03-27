@@ -39,12 +39,12 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: ${{ container }}
+          tags: ${{ env.container }}
           
   short: 
 
     runs-on: ubuntu-latest
-    container: ${{ container }}
+    container: ${{ env.container }}
     needs: build
     
     steps:
@@ -59,7 +59,7 @@ jobs:
   medium: 
 
     runs-on: ubuntu-latest
-    container: ${{ container }}
+    container: ${{ env.container }}
     needs: build
     
     steps:
@@ -71,7 +71,7 @@ jobs:
   long: 
 
     runs-on: ubuntu-latest
-    container: ${{ container }}
+    container: ${{ env.container }}
     needs: build
     
     steps:
@@ -84,7 +84,7 @@ jobs:
   
     name: ${{ matrix.name }}
     runs-on: ${{ matrix.os }}
-    container: ${{ container }}
+    container: ${{ env.container }}
     needs: build
     
     env:
