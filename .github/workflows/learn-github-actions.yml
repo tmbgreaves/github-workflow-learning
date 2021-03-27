@@ -25,3 +25,13 @@ jobs:
         with:
           push: true
           tags: tmbgreaves/github-workflow-learning:latest
+          
+  test: 
+
+    runs-on: ubuntu-latest
+    container: { tmbgreaves/github-workflow-learning:latest }
+    
+    steps:
+   
+     - name: Test 1
+       run: uname -a   
